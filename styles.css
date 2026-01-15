@@ -433,4 +433,39 @@ code{
   background: rgba(250, 204, 21, 0.22);
   color: #3b2f00;
   border-color: rgba(250, 204, 21, 0.50);
+}/* --- Mobile overflow fixes for long pills/chips --- */
+
+/* Allow long text (emails/campaigns) to wrap instead of clipping */
+.meta-pill,
+.small-tag,
+.chip {
+  max-width: 100%;
+  white-space: normal !important;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* Ensure pills can shrink in flex containers */
+.timeline-right,
+.meta-row {
+  min-width: 0;
+}
+
+/* Timeline left block shouldn't force width */
+.timeline-left {
+  min-width: 0 !important;
+}
+
+/* If any child still overflows, let it scroll instead of cutting */
+.timeline {
+  overflow: visible; /* remove clipping */
+}
+
+/* Extra safety: if something still gets too wide, horizontal scroll */
+.result-card {
+  overflow-x: hidden;
+}@media (max-width: 600px) {
+  .timeline-right {
+    justify-content: flex-start;
+  }
 }
