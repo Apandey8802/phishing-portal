@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cyber Awareness Portal</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-content">
+    <!-- ✅ Logo removed -->
+    <h1>Cyber Awareness Portal</h1>
+    <p class="subtitle">Phishing Simulation Results & Learning</p>
+  </div>
+</header>
+
+<main>
+  <!-- Input Card -->
+  <section class="card-section">
+    <div class="main-card">
+      <h2>Check Your Simulation Outcome</h2>
+      <p class="instruction">
+        Enter your work email address to see how you responded during the phishing simulation.
+        <br />
+        <span class="tiny-note">
+          This is an official internal awareness exercise. Never enter your password.
+        </span>
+      </p>
+
+      <form id="result-form" novalidate>
+        <label for="email-input">Work Email Address</label>
+        <input
+          id="email-input"
+          type="email"
+          placeholder="name@bcg.com"
+          required
+        />
+
+        <button type="submit" id="submit-btn">
+          <span id="btn-text">View My Result</span>
+          <span id="spinner" hidden>⏳</span>
+        </button>
+      </form>
+
+      <div id="form-error" class="form-error"></div>
+
+      <div class="data-hint">
+        Data source: <code>data/phishing_simulation_email_results_with_outcome.csv</code>
+      </div>
+    </div>
+  </section>
+
+  <!-- Result Card -->
+  <section id="result-section" class="result-section" hidden>
+    <div id="result-card" class="result-card neutral-bg">
+      <div class="result-top">
+        <div id="result-emoji" class="result-emoji">🛡️</div>
+
+        <div class="result-meta">
+          <div id="result-status" class="status-pill neutral">Status</div>
+          <h3 id="result-headline"></h3>
+        </div>
+      </div>
+
+      <p id="result-explanation"></p>
+
+      <h4 class="result-subtitle">Key takeaway</h4>
+      <ul id="result-learnings"></ul>
+
+      <!-- script injects meta + timeline here -->
+      <div id="result-footer" class="result-footer"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <p class="disclaimer">
+    This phishing simulation was conducted for awareness and learning purposes only.
+    Individual results are not used for performance evaluation.
+  </p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
